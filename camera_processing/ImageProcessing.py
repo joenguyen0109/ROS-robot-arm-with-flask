@@ -1,6 +1,6 @@
 import cv2
 import joblib
-
+import os
 import numpy as np
 from skimage.feature import hog
 
@@ -48,8 +48,8 @@ class ImageProcessing:
                 midpoint2 = (y  + y + h )/2
                 return_data[objectName] = np.append(ImageProcessing.convertCoordinate(midpoint1,midpoint2), [zCoordinate])
                 i += 1
-
-        path = r"/home/joe/Documents/github/ROS-Robot-arm-and-website/repo/camera_processing/static/image.png"
+        path = os.getcwd()
+        path += "/static/image.png"
         cv2.imwrite(path,img) 
         return return_data 
 

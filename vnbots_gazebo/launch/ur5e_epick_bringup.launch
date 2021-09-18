@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- input arguements -->
+
+    <!--Robot description and related parameter files -->
+    <arg name="limited" default="false" doc="Limit some joints to [-pi, pi]"/>
+    <arg name="robot_description_file" default="$(dirname)/inc/load_ur5e_epick.launch.xml"/>
+    <!-- get modified joint limits if arg limited is true -->
+    <arg name="joint_limit_params" value="$(find vnbots_gazebo)/config/ur5e/joint_limits.yaml" if="$(arg limited)"/>
+    <arg name="joint_limit_params" value="$(find ur_description)/config/ur5e/joint_limits.yaml" unless="$(arg limited)"/>
+
+    <arg name="use_gui" default="false" />
+    <!-- We do not have a robot connected, so publish fake joint states -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" unless="$(arg use_gui)">
+    <rosparam param="source_list">[move_group/fake_controller_joint_states]</rosparam>
+    <rosparam param="source_list">[/joint_states]</rosparam>
+    </node>
+    <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" if="$(arg use_gui)">
+    <rosparam param="source_list">[move_group/fake_controller_joint_states]</rosparam>
+    <rosparam param="source_list">[/joint_states]</rosparam>
+    </node>
+
+
+    <!-- Controller configuration -->
+    <arg name="controller_config_file" default="$(find vnbots_gazebo)/config/ur5e_controllers.yaml" doc="Config file used for defining the ROS-Control controllers."/>
+    <arg name="controllers" default="joint_state_controller pos_joint_traj_controller" doc="Controllers that are activated by default."/>
+    <arg name="stopped_controllers" default="joint_group_pos_controller" doc="Controllers that are initally loaded, but not started."/>
+
+    <!-- robot_state_publisher configuration -->
+    <arg name="tf_prefix" default="" doc="tf_prefix used for the robot."/>
+    <arg name="tf_pub_rate" default="500" doc="Rate at which robot_state_publisher should publish transforms."/>
+
+    <!-- Gazebo parameters -->
+    <arg name="paused" default="false" doc="Starts Gazebo in paused mode" />
+    <arg name="gui" default="true" doc="Starts Gazebo gui" />
+    <arg name="gazebo_world" default="$(find vnbots_gazebo)/worlds/lab_setup.world"/>
+
+
+    <!-- loading and launching -->
+
+    <!-- Load urdf on the parameter server -->
+    <include file="$(arg robot_description_file)">
+        <arg name="joint_limit_params" value="$(arg joint_limit_params)"/>
+    </include>
+
+    <!-- Robot state publisher -->
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+        <param name="publish_frequency" type="double" value="$(arg tf_pub_rate)" />
+        <param name="tf_prefix" value="$(arg tf_prefix)" />
+    </node>
+
+    <!-- Start the 'driver' (ie: Gazebo in this case) -->
+    <include file="$(dirname)/inc/ur_control.launch.xml">
+        <arg name="controller_config_file" value="$(arg controller_config_file)"/>
+        <arg name="controllers" value="$(arg controllers)"/>
+        <arg name="gui" value="$(arg gui)"/>
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="stopped_controllers" value="$(arg stopped_controllers)"/>
+        <arg name="gazebo_world" value="$(arg gazebo_world)"/>
+    </include>
+</launch>

@@ -1,0 +1,9 @@
+<launch>
+  <arg name="sim" default="false" />
+  <arg name="debug" default="false" />
+
+  <!-- Launch moveit -->
+  <include file="$(find ur5e_epick_moveit_config)/launch/move_group.launch">
+    <arg name="debug" default="$(arg debug)" />
+  </include>
+</launch>

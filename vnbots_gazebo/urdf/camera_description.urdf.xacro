@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="camera" >
+
+  <!-- Include camera description -->
+  <xacro:include filename="$(find vnbots_gazebo)/urdf/inc/camera_model.xacro" />
+
+  <link name="world" />
+
+  <!-- Link camera with world joint -->
+  <joint name="camera_world_joint" type="fixed">
+    <parent link="world" />
+    <child link = "camera_link" />
+    <origin xyz="1.9 0.25 1.675" rpy="0.0 ${pi/2.6} ${pi}" />
+  </joint>
+
+</robot>

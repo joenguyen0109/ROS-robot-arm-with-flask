@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>vnbots_gazebo</name>
+    <version>0.0.0</version>
+    <description>The vnbots_gazebo package</description>
+    <license>BSD</license>
+
+    <maintainer email="joenguyen0109@gmail.com">Joe Nguyen</maintainer>
+
+    <build_depend>message_generation</build_depend>
+
+    <exec_depend>message_runtime</exec_depend> 
+
+    <buildtool_depend>catkin</buildtool_depend>
+    <build_depend>roscpp</build_depend>
+    <build_depend>rospy</build_depend>
+    <build_depend>std_msgs</build_depend>
+    <build_export_depend>roscpp</build_export_depend>
+    <build_export_depend>rospy</build_export_depend>
+    <build_export_depend>std_msgs</build_export_depend>
+    <exec_depend>roscpp</exec_depend>
+    <exec_depend>rospy</exec_depend>
+    <exec_depend>std_msgs</exec_depend>
+
+    <build_depend>moveit_core</build_depend>
+    <build_depend>moveit_ros_planning</build_depend>
+    <build_depend>moveit_ros_planning_interface</build_depend>
+
+
+    <exec_depend>ur5e_epick_moveit_config</exec_depend>
+    <exec_depend>ur_description</exec_depend>
+    <exec_depend>ur_kinematics</exec_depend>
+
+    <exec_depend>moveit_core</exec_depend>
+    <exec_depend>moveit_ros_planning_interface</exec_depend>
+    <exec_depend>gazebo_ros</exec_depend>
+    
+    <export>
+        <gazebo_ros gazebo_model_path="${prefix}/models"/>
+        <gazebo_ros gazebo_plugin_path="${prefix}/models" gazebo_media_path="${prefix}/models" />
+    </export>
+</package>

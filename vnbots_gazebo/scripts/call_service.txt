@@ -1,0 +1,7 @@
+rosservice call /MoveRobot "xStart: 1.4
+yStart: 0.5
+zStart: 0.21
+containerName: 'Container 1'"
+
+
+

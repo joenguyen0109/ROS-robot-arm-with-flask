@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: vnbots_gazebo
+    relative_path: urdf/ur5e_robotiq_epick_robot.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/ur5e_epick.srdf
+  CONFIG:
+    author_name: Luke Dennis
+    author_email: l.dennis@unsw.edu.au
+    generated_timestamp: 1628725921

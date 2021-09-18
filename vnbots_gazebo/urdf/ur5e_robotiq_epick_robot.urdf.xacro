@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro"
+    name="ur5e_epick" >
+
+    <!-- ur5e -->
+    <xacro:include filename="$(find vnbots_gazebo)/urdf/inc/ur5e_macro.xacro" />
+    <xacro:ur5e_robot prefix="" />
+
+    <!-- gripper -->
+    <xacro:include filename="$(find vnbots_gazebo)/urdf/inc/robotiq_epick_model.xacro" />
+
+    <!-- Root link -->
+    <link name="world" />
+    <!-- fix robot to world -->
+    <joint name="world_joint" type="fixed">
+        <parent link="world" />
+        <child link="base_link" />
+    </joint>
+
+    <!-- fix epick to robot -->
+    <joint name="robotiq_epick_joint" type="fixed">
+        <origin xyz="0 0 0.004" rpy="0 0 ${-pi/2.0}" />
+        <parent link="tool0"/>
+        <child link="epick"/>
+    </joint>
+
+</robot>

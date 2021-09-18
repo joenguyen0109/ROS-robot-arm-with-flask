@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dropdown</title>
+</head>
+
+<body>
+    <img src="{{ url_for('video_feed') }}">
+    <img src="{{url_for('static', filename='image.png')}}" alt="image" />
+    <form method="POST">
+        <input type="submit" name="SnapShot" value="SnapShot">
+    </form>
+    <form method="POST">
+        <select name='object' value="objects"  action="/">
+            {% for object in objects %}
+            <option value="{{object}}" SELECTED>{{ object }}</option>"
+            {% endfor %}
+        </select>
+
+        <select name='container' value="containers"  action="/">
+            {% for container in containers %}
+            <option value="{{container}}" SELECTED>{{ container }}</option>"
+            {% endfor %}
+        </select>
+        <input type="submit" name="Send" value="SendLocation">
+    </form>
+</body>
+
+</html>

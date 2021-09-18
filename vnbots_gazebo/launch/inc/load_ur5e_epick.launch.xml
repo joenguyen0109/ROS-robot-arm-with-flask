@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+  <!--Parameter files -->
+  <arg name="joint_limit_params" default="$(find ur_description)/config/ur5e/joint_limits.yaml"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro '$(find vnbots_gazebo)/urdf/ur5e_robotiq_epick_robot.urdf.xacro'
+      joint_limit_params:=$(arg joint_limit_params)"
+    />
+</launch>

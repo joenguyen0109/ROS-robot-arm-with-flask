@@ -32,9 +32,9 @@ def main():
     yPose = [0.1,-0.2,0.5,0.4,0]
     # Object file path
     
-    path = os.path.dirname(os.getcwd()) 
+    path = os.getcwd() 
     
-    pathList = [path + '/models/gear_part/model.sdf',path + '/models/box/box.sdf',path + '/models/ball/ball.sdf',path + '/models/bowl/model.sdf',path + '/models/gear_part/model.sdf']
+    pathList = [path + '/src/vnbots_gazebo/scripts/gear_part/model.sdf',path + '/src/vnbots_gazebo/scripts/box/box.sdf',path + '/src/vnbots_gazebo/scripts/ball/ball.sdf',path + '/src/vnbots_gazebo/scripts/bowl/model.sdf',path + '/src/vnbots_gazebo/scripts/gear_part/model.sdf']
 
     
     i =0 

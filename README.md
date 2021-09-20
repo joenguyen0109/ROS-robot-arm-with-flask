@@ -1,11 +1,12 @@
 # Requirement 
-run in ubunutu 20.04
+run in ubunutu 20.04 or WSL2 on window
+(not recommend run in virtualbox)
 
 python 3.8
 
 install flask and sklearn
 
-install ros noetic
+install ros noetic http://wiki.ros.org/noetic/Installation/Ubuntu
 
 	install moveIt:
 

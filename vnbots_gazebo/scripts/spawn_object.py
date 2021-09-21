@@ -34,7 +34,7 @@ def main():
     
     path = os.getcwd() 
     
-    pathList = [path + '/src/vnbots_gazebo/scripts/gear_part/model.sdf',path + '/src/vnbots_gazebo/scripts/box/box.sdf',path + '/src/vnbots_gazebo/scripts/ball/ball.sdf',path + '/src/vnbots_gazebo/scripts/bowl/model.sdf',path + '/src/vnbots_gazebo/scripts/gear_part/model.sdf']
+    pathList = [path + '/src/ROS-robot-arm-with-flask/vnbots_gazebo/scripts/gear_part/model.sdf',path + '/src/ROS-robot-arm-with-flask/vnbots_gazebo/scripts/box/box.sdf',path + '/src/ROS-robot-arm-with-flask/vnbots_gazebo/scripts/ball/ball.sdf',path + '/src/ROS-robot-arm-with-flask/vnbots_gazebo/scripts/bowl/model.sdf',path + '/src/ROS-robot-arm-with-flask/vnbots_gazebo/scripts/gear_part/model.sdf']
 
     
     i =0 

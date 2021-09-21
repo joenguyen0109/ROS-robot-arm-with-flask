@@ -21,21 +21,21 @@ install ros noetic http://wiki.ros.org/noetic/Installation/Ubuntu
 Clone the repo then setup and link git repo
 ```bash
 mkdir -p ~/ROS_workspaces/vnbots_ws/src
-
 cd ~/ROS_workspaces/vnbots_ws/src
-ln -s gitRepo/vnbots_gazebo .
-ln -s gitRepo/ur5e_epick_moveit_config .
-ln -s gitRepo/ur_description .
-ln -s gitRepo/ur_kinematics .
+git clone link
 ```
 
 # build & run
-run each command in seperate termnial with source devel/setup.bash
 ```bash
 cd ~/ROS_workspaces/vnbots_ws
 catkin_make
 source devel/setup.bash
 ```
+run each command in seperate termnial with  
+cd ~/ROS_workspaces/vnbots_ws  
+source devel/setup.bash  
+
+
 Run gazebo simulation
 ```bash
 roslaunch vnbots_gazebo demo.launch
@@ -46,7 +46,6 @@ rosrun vnbots_gazebo robotControl.py
 ```
 Spawn object in gazebo world
 ```bash
-cd ~/ROS_workspaces/vnbots_ws
 rosrun vnbots_gazebo spawn_object.py
 ```
 Run camera server

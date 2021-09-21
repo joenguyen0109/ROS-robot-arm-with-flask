@@ -1,5 +1,5 @@
 # Introduction
-This is the project for MTRN4230 in UNSW. Control robot arm through a web interface with a machine learning algorithm to classify objects.
+This is the project for MTRN4230 in UNSW. Control robot arm through a web interface and ROS with a machine learning algorithm to classify objects.
 # Requirement 
 run in ubunutu 20.04 or WSL2 on window
 (not recommend run in virtualbox)

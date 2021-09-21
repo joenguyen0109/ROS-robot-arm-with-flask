@@ -32,9 +32,11 @@ catkin_make
 source devel/setup.bash
 ```
 run each command in seperate termnial with  
+
+```bash
 cd ~/ROS_workspaces/vnbots_ws  
 source devel/setup.bash  
-
+```
 
 Run gazebo simulation
 ```bash
@@ -54,5 +56,5 @@ rosrun vnbots_gazebo sever.py
 ```
 Run flask website
 ```bash
-python3 ~/ROS_workspaces/vnbots_ws/src/camera_processing/app.py 
+python3 ~/ROS_workspaces/vnbots_ws/src/ROS-robot-arm-with-flask/camera_processing/app.py 
 ```

@@ -38,6 +38,8 @@ def main():
 
     
     i =0 
+
+    # Each object needs an unique name
     for x in xPose:
         pose = Pose(position = Point(x=x, y=yPose[i], z=0.775), orientation = Quaternion(x=ot[0], y=ot[1], z=ot[2], w=ot[3]))
         spawn_object(pose, "object" + str(i),pathList[i])

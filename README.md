@@ -16,7 +16,7 @@ install ros noetic http://wiki.ros.org/noetic/Installation/Ubuntu
 	sudo apt install ros-noetic-moveit
 	sudo apt-get install ros-noetic-joint-trajectory-controller
 
-
+Install tutorial: https://www.youtube.com/watch?v=sNZTlIOxwEo
 
 # Setup 
 Clone the repo then setup and link git repo

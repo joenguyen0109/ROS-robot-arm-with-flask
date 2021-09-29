@@ -12,15 +12,17 @@ install flask and sklearn
 
 install ros noetic http://wiki.ros.org/noetic/Installation/Ubuntu
 
-	install moveIt:
+install moveIt:
 
 	sudo apt install ros-noetic-moveit
 	sudo apt-get install ros-noetic-joint-trajectory-controller
 
-Install tutorial: https://www.youtube.com/watch?v=sNZTlIOxwEo
+
 
 # Setup 
-Clone the repo then setup and link git repo
+Install tutorial: https://www.youtube.com/watch?v=sNZTlIOxwEo
+
+Clone the repo then setup repo
 ```bash
 mkdir -p ~/ROS_workspaces/vnbots_ws/src
 cd ~/ROS_workspaces/vnbots_ws/src

@@ -2,15 +2,15 @@
 from Snapshot import Snapshot
 from flask import Flask, render_template, Response, request, url_for
 import rospy
-import time
-from handle_camera import Camera
+from communication import ROS 
 from vnbots_gazebo.srv import EndPosition
+import threading
+import time
+import sys
+
 
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
-
-camera = Camera()
-
 snapshot_image = Snapshot()
 
 # Ignore this part, this for clear the cache
@@ -44,9 +44,7 @@ def index():
                     pass
         
         # Create delay for take snapshot and save image
-        Camera.snapshot = True
-        time.sleep(0.3)
-        Camera.snapshot = False
+        ROS.snapshot = True
         time.sleep(0.3)
         snapshot_image.detectObject()
         time.sleep(0.3)
@@ -56,10 +54,12 @@ def index():
 
 
 def gen():
+    camera = ROS()  # use 0 for web camera
     while True:
+        # Capture frame-by-frame
         frame = camera.get_frame()
         yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  # concat frame one by one and show result
 
 
 @app.route('/video_feed')
@@ -67,6 +67,16 @@ def video_feed():
     return Response(gen(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
+def startWeb():
+    app.run(host='0.0.0.0', threaded=True)
+
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', threaded=True)
+    try:
+        x = threading.Thread(target=startWeb)
+        x.start()
+        rospy.init_node('Simple_node_camera',anonymous=True)
+        rospy.spin()
+    except KeyboardInterrupt:
+        print("Ctrl+C pressed...")
+        sys.exit(1)

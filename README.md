@@ -2,6 +2,9 @@
 This is the project for MTRN4230 in UNSW. Control robot arm through a web interface and ROS with a machine learning algorithm to classify objects. 
 
 ![grab-landing-page](https://github.com/joenguyen0109/ROS-robot-arm-with-flask/blob/main/gif.gif)
+
+System diagram
+![System Image](https://github.com/joenguyen0109/ROS-robot-arm-with-flask/blob/main/system.png)
 # Requirement 
 run in ubunutu 20.04 or WSL2 on window
 (not recommend run in virtualbox)

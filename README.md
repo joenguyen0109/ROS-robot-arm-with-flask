@@ -30,32 +30,35 @@ git clone link
 ```
 
 # build & run
+Build project
 ```bash
 cd ~/ROS_workspaces/vnbots_ws
 catkin_make
-source devel/setup.bash
 ```
-run each command in seperate termnial with  
-cd ~/ROS_workspaces/vnbots_ws  
-source devel/setup.bash  
-
-
 
 Run gazebo simulation
 ```bash
+cd ~/ROS_workspaces/vnbots_ws
+source devel/setup.bash
 roslaunch vnbots_gazebo demo.launch
 ```
 Run robot control
 ```bash
+cd ~/ROS_workspaces/vnbots_ws
+source devel/setup.bash
 rosrun vnbots_gazebo robotControl.py
 ```
 Spawn object in gazebo world
 ```bash
+cd ~/ROS_workspaces/vnbots_ws
+source devel/setup.bash
 rosrun vnbots_gazebo spawn_object.py
 ```
 
 Run flask website. After everytime run website need to kill the process by kill command
 ```bash
+cd ~/ROS_workspaces/vnbots_ws
+source devel/setup.bash
 cd ~/ROS_workspaces/vnbots_ws/src/ROS-robot-arm-with-flask/camera_processing
 python3 app.py 
 ```

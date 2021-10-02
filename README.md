@@ -53,11 +53,8 @@ Spawn object in gazebo world
 ```bash
 rosrun vnbots_gazebo spawn_object.py
 ```
-Run camera server
-```bash
-rosrun vnbots_gazebo sever.py
-```
-Run flask website
+
+Run flask website. After everytime run website need to kill the process by kill command
 ```bash
 cd ~/ROS_workspaces/vnbots_ws/src/ROS-robot-arm-with-flask/camera_processing
 python3 app.py 

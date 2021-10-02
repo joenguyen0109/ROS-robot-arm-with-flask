@@ -46,6 +46,6 @@ include_directories(${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIR} ${EIGEN3_INCLUDE
 
 
 
-catkin_install_python(PROGRAMS scripts/robotControl.py scripts/sever.py scripts/spawn_object.py
+catkin_install_python(PROGRAMS scripts/robotControl.py scripts/spawn_object.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
